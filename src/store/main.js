@@ -2,17 +2,20 @@ import { defineStore } from 'pinia'
 
 export const useCountStore = defineStore('count', {
   state: () => ({
-    count: 0,
+    count: 1,
   }),
   actions: {
     increment() {
       this.count++
     },
     decrease() {
-      if(this.count !== 0){
+      if(this.count !== 1){
         this.count--
       }
-  },
+    },
+    setCountInital(){
+      this.count = 1
+    }
   },
   persist: true
 })
@@ -44,7 +47,8 @@ export const usePersonalStore = defineStore('personal', {
       this.bagType = bagType
     }
   },
-  persist: true
+  // would need to modify the whole structure to persist this
+  // persist: true
 })
 
 export const useFlowStore = defineStore('flow', {
@@ -61,6 +65,7 @@ export const useFlowStore = defineStore('flow', {
       this.email = email
     },
   },
-  persist: true
+  // would need to modify the whole structure to persist this
+  // persist: true
 })
 

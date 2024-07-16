@@ -13,13 +13,12 @@
       <PersonalDetails/>
       <CardDetails/>
     </div>
-    <!-- <RouterView /> -->
     <TotalSection />
   </div>
 </template>
 <script>
 import { mapStores } from 'pinia'
-import { useFlowStore } from './store/main';
+import { useFlowStore, useCountStore } from './store/main';
 import TotalSection from './components/TotalSection.vue';
 import BookingStorage from './components/BookingStorage.vue';
 import PersonalDetails from './components/PersonalDetails.vue';
@@ -53,24 +52,25 @@ export default {
       }
     },
     computed: {
-      ...mapStores(useFlowStore),
+      ...mapStores(useFlowStore, useCountStore),
     },
     mounted(){
     },
     methods: {
       handleBookingProcess() {
         setTimeout(() => {
+        // imitate booking process, approx. 50% chance of getting true or false
         const successfullyBooked = Math.random() > 0.5;
-        console.log(Math.random() > 0.5)
         if (successfullyBooked) {
           this.flowStore.setStage('bookingSuccess');
+          this.countStore.setCountInital()
+          //TO DO: set a button text as a state so it can be changed from here when booking was success
+          // setTimeout(() => {
+          //   this.flowStore.setStage('initial');
+          // }, 2000);
         } else {
           this.flowStore.setStage('bookingFailed');
         }
-
-        // setTimeout(() => {
-        //   this.flowStore.stage = '';
-        // }, 3000);
       }, 2000);
     }
     },
@@ -117,20 +117,17 @@ nav a:first-of-type {
     justify-content: space-around;
     flex-direction: column;
 }
-label {
-  display: inline;
-  margin-right: 0.25rem;
-}
-.content-box{
-  margin: 1rem;
-}
 .overlay{
-  padding: 4rem;
-  width: auto;
-  height: 100%;
-  z-index: 1001;
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 .overlay > h2{
   color: white;

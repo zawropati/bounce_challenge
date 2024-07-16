@@ -1,13 +1,13 @@
 <template>
-  <div v-if="flowStore.stage !== 'initial'">
+  <div class='details-box' v-if="flowStore.stage !== 'initial'">
     <div v-if="personalStore.isEditable">
-      <h4>Personal Details</h4>
+      <h3>Personal Details:</h3>
       <form @submit.prevent="submit">
-        <div>
+        <div class="input-box">
           <label for="name">Name:</label>
           <input type="text" id="name" v-model="name" required>
         </div>
-        <div>
+        <div class="input-box">
           <label for="email">Email:</label>
           <input type="email" id="email" v-model="email" required>
         </div>
@@ -18,7 +18,6 @@
       <button @click.prevent="editDetails()">Change?</button>
     </div>
   </div>
-
 </template>
 <script>
 import { mapStores } from 'pinia'
@@ -36,32 +35,19 @@ export default {
     watch: {
       name: function(val){
         this.personalStore.setName(val)
-
-        // console.log(val)
       },
       email: function(val){
         this.personalStore.setEmail(val)
-
-        // console.log(val)
       }
     },
     computed: {
         ...mapStores(usePersonalStore, useFlowStore),
     },
     methods: {
-        // setName(name) {
-        //   this.personalStore.setName(name)
-        // },
-        // setEmail(email) {
-        //   this.personalStore.setEmail(email)
-        // },
         editDetails(){
           this.personalStore.setEditable(true)
         }
-        // setEmail(email) {
-        //   this.personalStore.setEmail(email)
-        // },
-    },
+    }
 }
 </script>
 <style scoped>
@@ -76,5 +62,8 @@ export default {
 .edit-personal-box button{
   background: none;
   border: none;
+}
+.details-box{
+  padding: 1rem;
 }
 </style>

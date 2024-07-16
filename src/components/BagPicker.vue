@@ -4,7 +4,7 @@
         - items should have diffetent prices and total amount should change based on that
         - enable changing the bag type
         - enable mixing bag types
-         -->
+        -->
         <div v-if="flowStore.stage == 'initial'">
             <h3>Pick a bag type</h3>
             <div class="flex-wrapper">
@@ -60,7 +60,7 @@ export default {
     align-items: center;
 }
 .picker-box{
-    padding: 0 1rem 1rem 1rem;
+    padding: 1rem;
     border-bottom: 1px solid grey;
 }
 .active{

@@ -1,10 +1,10 @@
 <template>
-  <div v-if="flowStore.stage == 'card' || flowStore.stage == 'bookingProgress'">
-      <h4>Payemnt Information</h4>
+  <div class="card-box" v-if="flowStore.stage == 'card' || flowStore.stage == 'bookingProgress' || flowStore.stage == 'bookingFailed'">
+      <h3>Payment Information:</h3>
       <form @submit.prevent="submit">
-        <div>
+        <div class="input-box">
           <label for="name">Card details:</label>
-          <input  type="text" id="name" v-model="cardNumber" required>
+          <input type="text" id="name" v-model="cardNumber" required>
         </div>
       </form>
     </div>
@@ -40,5 +40,9 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 1rem
+}
+.card-box{
+  border-top: 1px solid grey;
+  padding: 1rem;
 }
 </style>
