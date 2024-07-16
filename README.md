@@ -1,6 +1,6 @@
 # bounce_challenge
 
-Checkout flow Web Application for booking storage made with VueJS
+Web application for checkout flow for booking storage, built with Vue.js + Vite
 
 ## Recommended IDE Setup
 
@@ -10,7 +10,7 @@ Checkout flow Web Application for booking storage made with VueJS
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-## Project Setup
+## Project Setup - install dependencies 
 
 ```sh
 npm install
@@ -21,6 +21,7 @@ npm install
 ```sh
 npm run dev
 ```
+voila! the project should be running on http://localhost:5173/
 
 ### Compile and Minify for Production
 
