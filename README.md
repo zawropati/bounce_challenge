@@ -1,6 +1,6 @@
 # bounce_challenge
 
-Checkout flow for booking storage made with VueJS
+Checkout flow Web Application for booking storage made with VueJS
 
 ## Recommended IDE Setup
 
