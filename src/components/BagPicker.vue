@@ -7,22 +7,22 @@
         -->
         <div v-if="flowStore.stage == 'initial'">
             <h3>Pick a bag type</h3>
-            <div class="flex-wrapper">
-                <img
-                v-for="(image, index) in images"
-                :key="index"
-                @click="selectBag(index, image)"
-                :src="image.src"
-                :class="{'active': activeImageIndex === index}"
-                class='bag-image'
-            />
-      </div>
-    </div>
-    <div v-else>
-        <h3>Selected bag type:</h3>
-        {{ personalStore.bagType }}
-    </div>
-</div>
+				<div class="flex-wrapper">
+					<img
+					v-for="(image, index) in images"
+					:key="index"
+					@click="selectBag(index, image)"
+					:src="image.src"
+					:class="{'active': activeImageIndex === index}"
+					class='bag-image'
+					/>
+      		</div>
+   	 	</div>
+		<div v-else>
+			<h3>Selected bag type:</h3>
+			{{ personalStore.bagType }}
+		</div>
+	</div>
 </template>
 <script>
 import { mapStores } from 'pinia'

@@ -1,9 +1,11 @@
 <template>
   <div class="overlay wrapper" v-if="flowStore.stage=='bookingProgress'">
     <h2>Placing Booking
-      <br>...</h2>
+      <br>
+       ...
+    </h2>
   </div>
-  <div class="overlay wrapper overlay-success"  v-if="flowStore.stage=='bookingSuccess'">
+  <div class="overlay wrapper overlay-success" v-if="flowStore.stage=='bookingSuccess'">
     <h2 class="success-text">Booking placed!</h2>
   </div>
   <div class="wrapper">
@@ -24,8 +26,6 @@ import BookingStorage from './components/BookingStorage.vue';
 import PersonalDetails from './components/PersonalDetails.vue';
 import CardDetails from './components/CardDetails.vue'
 import BagPicker from './components/BagPicker.vue'
-// import DetailsView from './views/DetailsView.vue'
-
 
 export default {
     name: 'App',
@@ -35,7 +35,6 @@ export default {
       TotalSection,
       BookingStorage,
       BagPicker
-      // DetailsView
     },
     data () {
       return {}
