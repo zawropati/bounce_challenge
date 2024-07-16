@@ -41,8 +41,8 @@ export default {
   /* margin: 15px; */
 }
 .booking-box{
-  margin: 2rem;
-  padding: 1rem;
+  margin: 1rem;
+  /* padding: 1rem; */
   border-bottom: 1px solid grey;
 }
 .small-btn{

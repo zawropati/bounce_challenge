@@ -21,7 +21,8 @@ export const usePersonalStore = defineStore('personal', {
     name: '',
     email: '',
     cardNumber: '',
-    isEditable: true
+    isEditable: true,
+    bagType: ''
   }),
   getters: {
   },
@@ -37,6 +38,9 @@ export const usePersonalStore = defineStore('personal', {
     },
     setCardNumber(cardNumber){
       this.cardNumber = cardNumber
+    },
+    setBagType(bagType){
+      this.bagType = bagType
     }
   },
 })

@@ -1,9 +1,14 @@
 <template>
   <div class="overlay wrapper" v-if="flowStore.stage=='bookingProgress'">
-    <h2>Placing Booking...</h2>
+    <h2>Placing Booking
+      <br>...</h2>
+  </div>
+  <div class="overlay wrapper overlay-success"  v-if="flowStore.stage=='bookingSuccess'">
+    <h2 class="success-text">Booking placed!</h2>
   </div>
   <div class="wrapper">
     <BookingStorage/>
+    <BagPicker/>
     <div class="content-box">
       <PersonalDetails/>
       <CardDetails/>
@@ -19,6 +24,7 @@ import TotalSection from './components/TotalSection.vue';
 import BookingStorage from './components/BookingStorage.vue';
 import PersonalDetails from './components/PersonalDetails.vue';
 import CardDetails from './components/CardDetails.vue'
+import BagPicker from './components/BagPicker.vue'
 // import DetailsView from './views/DetailsView.vue'
 
 
@@ -29,10 +35,22 @@ export default {
       CardDetails,
       TotalSection,
       BookingStorage,
+      BagPicker
       // DetailsView
     },
     data () {
       return {}
+    },
+    watch: {
+      cardNumber: function(val){
+        this.personalStore.setCardNumber(val)
+        // console.log(val)
+      },
+      'flowStore.stage': function(newStage) {
+        if (newStage === 'bookingProgress') {
+          this.handleBookingProcess();
+        }
+      }
     },
     computed: {
       ...mapStores(useFlowStore),
@@ -40,6 +58,21 @@ export default {
     mounted(){
     },
     methods: {
+      handleBookingProcess() {
+        setTimeout(() => {
+        const successfullyBooked = Math.random() > 0.5;
+        console.log(Math.random() > 0.5)
+        if (successfullyBooked) {
+          this.flowStore.setStage('bookingSuccess');
+        } else {
+          this.flowStore.setStage('bookingFailed');
+        }
+
+        // setTimeout(() => {
+        //   this.flowStore.stage = '';
+        // }, 3000);
+      }, 2000);
+    }
     },
 }
 </script>
@@ -84,10 +117,6 @@ nav a:first-of-type {
     justify-content: space-around;
     flex-direction: column;
 }
-.wrapper > div{
-  margin: 2rem;
-}
-
 label {
   display: inline;
   margin-right: 0.25rem;
@@ -106,6 +135,13 @@ label {
 .overlay > h2{
   color: white;
   text-align: center;
+}
+.overlay-success{
+  background-color: white;
+}
+.success-text{
+  font-weight: bold;
+  color: black !important;
 }
 @media (min-width: 1024px) {
   header {

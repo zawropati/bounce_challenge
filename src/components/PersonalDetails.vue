@@ -1,5 +1,5 @@
 <template>
-  <div v-if="flowStore.stage == 'personal' || flowStore.stage == 'card'">
+  <div v-if="flowStore.stage !== 'initial'">
     <div v-if="personalStore.isEditable">
       <h4>Personal Details</h4>
       <form @submit.prevent="submit">
@@ -65,15 +65,16 @@ export default {
 }
 </script>
 <style scoped>
-.flex-wrapper{
-    display: flex;
-    justify-content: space-around;
-}
 .edit-personal-box{
-  background: green;
-  color: white;
+  background: rgb(81, 217, 81);
+  color: black;
   display: flex;
   justify-content: space-between;
-  padding: 1rem
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.edit-personal-box button{
+  background: none;
+  border: none;
 }
 </style>

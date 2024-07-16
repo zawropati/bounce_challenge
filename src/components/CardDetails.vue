@@ -1,5 +1,5 @@
 <template>
-  <div v-if="flowStore.stage == 'card'">
+  <div v-if="flowStore.stage == 'card' || flowStore.stage == 'bookingProgress'">
       <h4>Payemnt Information</h4>
       <form @submit.prevent="submit">
         <div>
@@ -24,30 +24,16 @@ export default {
     watch: {
       cardNumber: function(val){
         this.personalStore.setCardNumber(val)
-        // console.log(val)
       }
     },
     computed: {
-        ...mapStores(usePersonalStore, useFlowStore),
+      ...mapStores(usePersonalStore, useFlowStore),
     },
     methods: {
-        setName(name) {
-          this.personalStore.setName(name)
-        },
-        setEmail(email) {
-          this.personalStore.setEmail(email)
-        },
-        // setEmail(email) {
-        //   this.personalStore.setEmail(email)
-        // },
     },
 }
 </script>
 <style scoped>
-.flex-wrapper{
-    display: flex;
-    justify-content: space-around;
-}
 .edit-personal-box{
   background: green;
   color: white;
