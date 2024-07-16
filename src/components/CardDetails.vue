@@ -17,17 +17,17 @@ import { useFlowStore } from './../store/main'
 export default {
 	name: 'CardDetails',
 	data () {
-	  return {
-		cardNumber: '',
-	  }
+		return {
+			cardNumber: '',
+		}
 	},
 	watch: {
-	  cardNumber: function(val){
-		this.personalStore.setCardNumber(val)
-	  }
+		cardNumber: function(val){
+			this.personalStore.setCardNumber(val)
+		}
 	},
 	computed: {
-	  ...mapStores(usePersonalStore, useFlowStore),
+	  	...mapStores(usePersonalStore, useFlowStore),
 	},
 	methods: {
 	},
@@ -35,14 +35,14 @@ export default {
 </script>
 <style scoped>
 .edit-personal-box{
-  background: green;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  padding: 1rem
+	background: green;
+	color: white;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem
 }
 .card-box{
-  border-top: 1px solid grey;
-  padding: 1rem;
+	border-top: 1px solid grey;
+	padding: 1rem;
 }
 </style>

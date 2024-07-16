@@ -47,7 +47,7 @@ export const usePersonalStore = defineStore('personal', {
       this.bagType = bagType
     }
   },
-  // would need to modify the whole structure to persist this
+  // would need to modify the structure to persist this
   // persist: true
 })
 
@@ -65,7 +65,7 @@ export const useFlowStore = defineStore('flow', {
       this.email = email
     },
   },
-  // would need to modify the whole structure to persist this
+  // would need to modify the structure to persist this
   // persist: true
 })
 
