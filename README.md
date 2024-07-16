@@ -1,6 +1,6 @@
 # bounce_challenge
 
-This template should help get you started developing with Vue 3 in Vite.
+Checkout flow for booking storage made with VueJS
 
 ## Recommended IDE Setup
 
