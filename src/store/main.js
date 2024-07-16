@@ -14,6 +14,7 @@ export const useCountStore = defineStore('count', {
       }
   },
   },
+  persist: true
 })
 
 export const usePersonalStore = defineStore('personal', {
@@ -43,6 +44,7 @@ export const usePersonalStore = defineStore('personal', {
       this.bagType = bagType
     }
   },
+  persist: true
 })
 
 export const useFlowStore = defineStore('flow', {
@@ -59,5 +61,6 @@ export const useFlowStore = defineStore('flow', {
       this.email = email
     },
   },
+  persist: true
 })
 
